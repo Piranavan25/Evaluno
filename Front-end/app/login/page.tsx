@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
 
 export default function Login() {
   const router = useRouter();
@@ -21,8 +22,12 @@ export default function Login() {
 
     if (res.ok) {
       localStorage.setItem("token", data.access_token);
+      const decoded = jwtDecode<{ username: string }>(data.access_token);
+      const username = decoded.username;
+
       alert("Login successful");
-      // router.push("/dashboard"); // Add later
+      router.push("/dashboard"); // Add later
+
     } else {
       alert(data.detail || "Login failed");
     }

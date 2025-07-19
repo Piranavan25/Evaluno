@@ -1,9 +1,9 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional, Literal
+from bson import ObjectId
 
 
 class UserBase(BaseModel):
-    #user_id: str
     username: str
     email: EmailStr
     user_type: Literal["personal", "enterprise"]
@@ -28,3 +28,10 @@ class UserLogin(BaseModel):
 class UserResponse(UserBase):
     id: str
     enterprise_info: Optional[EnterpriseInfo]
+
+
+# Optional: For use in database logic
+class UserInDB(UserBase):
+    id: Optional[str] = None
+    password: str
+    enterprise_info: Optional[EnterpriseInfo] = None
