@@ -8,3 +8,5 @@ MONGO_URI = os.getenv("MONGO_URI")
 client = AsyncIOMotorClient(MONGO_URI)
 db = client["evaluno_db"]
 user_collection = db["users"]
+
+

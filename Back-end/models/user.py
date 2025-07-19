@@ -1,5 +1,5 @@
 # No need for ORMs with Motor, structure is flexible
-# But we’ll treat this like a guide to the document fields
+#  guide for the document fields
 
 # MongoDB will store documents like this:
 # {
