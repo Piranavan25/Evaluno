@@ -1,14 +1,17 @@
-from pymongo import IndexModel
-from pymongo.collection import Collection
-from database.connection import db
+# No need for ORMs with Motor, structure is flexible
+#  guide for the document fields
 
-def create_user_model():
-    users_collection: Collection = db["users"]
-    
-    # Create indexes
-    users_collection.create_indexes([
-        IndexModel([("email", 1)], unique=True),
-        IndexModel([("username", 1)], unique=True)
-    ])
-    
-    return users_collection
+# MongoDB will store documents like this:
+# {
+#   "_id": ObjectId,
+#   "user_id": "U123",
+#   "username": "John",
+#   "email": "john@example.com",
+#   "password": "$hashed...",
+#   "user_type": "enterprise",
+#   "enterprise_info": {
+#     "company_name": "...",
+#     "company_category": "...",
+#     "company_email": "..."
+#   }
+# }

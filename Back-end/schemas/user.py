@@ -1,30 +1,37 @@
 from pydantic import BaseModel, EmailStr, Field
-from typing import Optional
-from datetime import datetime
+from typing import Optional, Literal
+from bson import ObjectId
+
 
 class UserBase(BaseModel):
-    username: str = Field(..., min_length=3, max_length=50)
+    username: str
     email: EmailStr
+    user_type: Literal["personal", "enterprise"]
+
+
+class EnterpriseInfo(BaseModel):
+    company_name: str
+    company_category: str
+    company_email: EmailStr
+
 
 class UserCreate(UserBase):
-    password: str = Field(..., min_length=6)
+    password: str
+    enterprise_info: Optional[EnterpriseInfo] = None
 
-class UserInDB(UserBase):
-    id: str
-    hashed_password: str
-    created_at: datetime
-    updated_at: datetime
 
-    class Config:
-        from_attributes = True
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
 
 class UserResponse(UserBase):
     id: str
-    created_at: datetime
+    enterprise_info: Optional[EnterpriseInfo]
 
-class Token(BaseModel):
-    access_token: str
-    token_type: str
 
-class TokenData(BaseModel):
-    username: Optional[str] = None
+# Optional: For use in database logic
+class UserInDB(UserBase):
+    id: Optional[str] = None
+    password: str
+    enterprise_info: Optional[EnterpriseInfo] = None

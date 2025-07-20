@@ -1,34 +1,33 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from routes.auth import router as auth_router
-
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from routes import auth
+from routes import interviewRoute
 from database.connection import get_db, client
-from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo.errors import ConnectionFailure
 
 app = FastAPI()
 
-# CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000"],  # Next.js frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Include routes
-app.include_router(auth_router, prefix="/api/v1/auth", tags=["auth"])
+# Include all routers
+app.include_router(auth.router, prefix="/auth", tags=["Auth"])
+app.include_router(interviewRoute.router)
 
+# Optional: Root route
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the FastAPI authentication service"}
 
+# Optional: DB connection test
 @app.get("/check-db")
 async def check_db_connection():
     try:
-        # Ping the database (async)
         await client.admin.command('ping')
         return {"status": "success", "message": "Connected to MongoDB Atlas!"}
     except ConnectionFailure as e:

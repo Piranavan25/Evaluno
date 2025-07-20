@@ -1,103 +1,103 @@
-import Image from "next/image";
+/*"use client";
+
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="relative min-h-screen bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white overflow-hidden">
+      {/* Glassy NavBar *//*}
+      <header className="backdrop-blur-md bg-white/10 border-b border-white/20 fixed top-0 w-full z-10 shadow-lg">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <nav className="space-x-6 text-sm font-semibold">
+            <Link href="/" className="hover:underline">Home</Link>
+            <Link href="/about" className="hover:underline">About</Link>
+            <Link href="/products" className="hover:underline">Products</Link>
+          </nav>
+          <div className="space-x-4">
+            <Link href="/register" className="glass-button">Sign Up</Link>
+            <Link href="/login" className="glass-button">Sign In</Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      </header>
+
+      {/* Centered Title *//*}
+      <section className="flex items-center justify-center text-center h-screen">
+        <h1 className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-300 to-white drop-shadow-lg">
+          Evaluno
+        </h1>
+      </section>
+
+      {/* Custom Glassy Button Styles *//*}
+      <style jsx>{`
+        .glass-button {
+          @apply inline-block px-6 py-2 rounded-lg border border-white/30 bg-white/10 text-white backdrop-blur-md transition duration-200 hover:bg-white/20 hover:shadow-md;
+        }
+      `}</style>
+    </main>
+  );
+}
+*/
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import HeroImg from "../public/sidehome.png"; // <-- Replace with your actual image path
+
+export default function Home() {
+  return (
+    <main className="bg-gradient-to-br from-[#1b113f] to-[#0c071c] min-h-screen text-white relative overflow-hidden">
+      {/* Glassy Navbar */}
+      <nav className="flex justify-between items-center px-10 py-6 backdrop-blur-md bg-white/5 border-b border-white/10 fixed top-0 w-full z-50">
+        <div className="text-xl font-bold tracking-widest">EVALUNO</div>
+        <ul className="hidden md:flex space-x-8 font-medium text-sm">
+          <li><Link href="#">Home</Link></li>
+          <li><Link href="#">About</Link></li>
+          <li><Link href="#">Products</Link></li>
+        </ul>
+        <div className="space-x-4">
+          <Link href="/login" className="px-4 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 transition">Log in</Link>
+          <Link href="/register" className="px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-700 transition">Sign up</Link>
+        </div>
+      </nav>
+
+      {/* Hero Section - Two Columns */}
+      <section className="flex flex-col md:flex-row items-center justify-between gap-10 pt-40 md:pt-48 pb-20 px-6 md:px-16 max-w-7xl mx-auto relative z-10">
+        
+        {/* Left Glassy Content */}
+        <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-10 md:max-w-xl shadow-xl">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-white">
+            Welcome to <br />
+            <span className="bg-gradient-to-r from-purple-400 to-blue-500 text-transparent bg-clip-text">Evaluno</span>
+          </h1>
+          <p className="text-md md:text-lg text-white/70 mb-8">
+            The smart AI-powered recruiting assistant that streamlines hiring for enterprises and individuals.
+          </p>
+          <div className="space-x-4">
+            <Link href="/register" className="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">
+              Get Started
+            </Link>
+            <button className="px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition text-white">
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        {/* Right Side Image */}
+        <div className="w-full md:w-1/2">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src={HeroImg}
+            alt="AI Recruiting Visual"
+            width={600}
+            height={600}
+            className="rounded-3xl shadow-2xl object-contain"
+            priority
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+
+      {/* Decorative Background Blobs */}
+      <div className="absolute -top-20 -right-32 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full filter blur-3xl opacity-50 z-0"></div>
+      <div className="absolute top-60 -left-40 w-[400px] h-[400px] bg-gradient-to-r from-pink-400/20 to-indigo-400/20 rounded-full filter blur-2xl opacity-40 z-0"></div>
+    </main>
   );
 }
