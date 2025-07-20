@@ -41,7 +41,6 @@ export default function Home() {
 
 import Link from "next/link";
 import Image from "next/image";
-import HeroImg from "../public/sidehome.png"; // <-- Replace with your actual image path
 
 export default function Home() {
   return (
@@ -85,7 +84,7 @@ export default function Home() {
         {/* Right Side Image */}
         <div className="w-full md:w-1/2">
           <Image
-            src={HeroImg}
+            src="/sidehome.png"
             alt="AI Recruiting Visual"
             width={600}
             height={600}
