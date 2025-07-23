@@ -11,7 +11,7 @@ from jose import JWTError, jwt
 from fastapi import HTTPException, status
 
 from database.connection import get_db, user_collection  # merged both imports
-from schemas.user import UserCreate, UserInDB, UserResponse, TokenData, UserLogin
+from schemas.user import UserCreate, UserInDB, UserResponse, UserLogin
 from utils.helpers import hash_password, verify_password, create_access_token
 from bson import ObjectId
 import secrets

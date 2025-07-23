@@ -4,6 +4,8 @@ from routes import auth
 from routes import interviewRoute
 from database.connection import get_db, client
 from pymongo.errors import ConnectionFailure
+from routes import compareRoute
+
 
 app = FastAPI()
 
@@ -18,6 +20,8 @@ app.add_middleware(
 # Include all routers
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 app.include_router(interviewRoute.router)
+app.include_router(compareRoute.router)
+
 
 # Optional: Root route
 @app.get("/")

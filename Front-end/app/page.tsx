@@ -80,6 +80,7 @@ export default function Home() {
           <li><Link href="#">Home</Link></li>
           <li><Link href="#">About</Link></li>
           <li><Link href="#">Products</Link></li>
+          <li><Link href="/compare">CV Comparison</Link></li>
         </ul>
         <div className="space-x-4">
           <Link href="/login" className="px-4 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 transition">Log in</Link>
