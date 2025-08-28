@@ -92,26 +92,26 @@ export default function Login() {
           </button>
         </form>
         <div className="mt-2 text-center text-white/70">
-  <button
-    type="button"
-    onClick={() => router.push("/")}
-    className="text-purple-400 hover:underline font-semibold inline-flex items-center gap-1"
-  >
-    ← Back to Home
-  </button>
-</div>
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            className="text-purple-400 hover:underline font-semibold inline-flex items-center gap-1"
+          >
+            ← Back to Home
+          </button>
+        </div>
 
 
         <div className="mt-4 text-center text-white/70">
-  Don't have an account?{" "}
-  <button
-    type="button"
-    onClick={() => router.push("/register")}
-    className="text-purple-400 hover:underline font-semibold"
-  >
-    Sign Up
-  </button>
-</div>
+          Don't have an account?{" "}
+          <button
+            type="button"
+            onClick={() => router.push("/register")}
+            className="text-purple-400 hover:underline font-semibold"
+          >
+            Sign Up
+          </button>
+        </div>
       </div>
     </div>
   );
